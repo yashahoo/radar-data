@@ -39,10 +39,10 @@ mkdir -p /Volumes/DM/data/$SYSTEM/RTdata_FV00/$SITE/$YEAR/$mo
 
 aws s3 sync --no-sign s3://imos-data/IMOS/ACORN/gridded_1h-avg-current-map_non-QC/$SITE/$YEAR/$mo  /Volumes/DM/data/$SYSTEM/RTdata_FV00/$SITE/$YEAR/$mo/ 
 
-for day  in $(seq -w 1 31)
+for day  in $(seq -w 1 1 31)
     do
-	fprintf -v day "%02d" $dd
-	echo $day
+	#printf -v day "%02d" $dd
+#	echo $day
 	mv /Volumes/DM/data/$SYSTEM/RTdata_FV00/$SITE/$YEAR/$mo/$day/*.nc /Volumes/DM/data/$SYSTEM/RTdata_FV00/$SITE/$YEAR/$mo/
 	rmdir /Volumes/DM/data/$SYSTEM/RTdata_FV00/$SITE/$YEAR/$mo/$day/
 done
