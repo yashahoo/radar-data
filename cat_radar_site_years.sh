@@ -1,6 +1,8 @@
 # concatinate all files for given year and site
 # call as ./cat_radar_site_years.sh SYSTEM SITE STARTYEAR ENDYEAR 
-# this file should be run from  /home2/yasha/radar/data/
+# this file should be run from  /Volumes/DM/data/
+# yh@uwa 20231030 - updated paths for geko server 
+
 SYSTEM=$1
 SITE=$2
 STARTYEAR=$3
@@ -33,12 +35,12 @@ echo $outfile
 #echo $command
 echo downloading concatinating $SITE $YEAR 
 #echo to
-#echo /home2/yasha/radar/data/$SYSTEM/RTdata_FV01/$SITE/$YEAR/
-#mkdir -p /home2/yasha/radar/data/$SYSTEM/RTdata_FV01/$SITE/$YEAR/
-#aws s3 sync --no-sign s3://imos-data/IMOS/ACORN/gridded_1h-avg-current-map_QC/$SITE/$YEAR/  /home2/yasha/radar/data/$SYSTEM/RTdata_FV01/$SITE/$YEAR/ 
+#echo /Volumes/DM/data/$SYSTEM/RTdata_FV01/$SITE/$YEAR/
+#mkdir -p /Volumes/DM/data/$SYSTEM/RTdata_FV01/$SITE/$YEAR/
+#aws s3 sync --no-sign s3://imos-data/IMOS/ACORN/gridded_1h-avg-current-map_QC/$SITE/$YEAR/  /Volumes/DM/data/$SYSTEM/RTdata_FV01/$SITE/$YEAR/ 
 
-#find /home2/yasha/radar/data/$SYSTEM/RTdata_FV01/$SITE/$YEAR -name 'IMOS*2007*T*.nc' -type f -print | sort | ncrcat -h IMOS_ACORN_V_$YEAR_$SITE_FV01_1-hour-avg.nc
-find /home2/yasha/radar/data/$SYSTEM/RTdata_FV01/$SITE/$YEAR -name $infile -type f -print | sort | ncrcat -h $outfile
+#find /Volumes/DM/data/$SYSTEM/RTdata_FV01/$SITE/$YEAR -name 'IMOS*2007*T*.nc' -type f -print | sort | ncrcat -h IMOS_ACORN_V_$YEAR_$SITE_FV01_1-hour-avg.nc
+find /Volumes/DM/data/$SYSTEM/RTdata_FV01/$SITE/$YEAR -name $infile -type f -print | sort | ncrcat -h $outfile
 
 done
 
@@ -49,4 +51,4 @@ done
 
 
 
-#s3cmd sync s3://imos-data/IMOS/ACORN/radial/FRE/2018/05/ /home2/yasha/radar/data/WERA/radial/FRE/2018/05/
+#s3cmd sync s3://imos-data/IMOS/ACORN/radial/FRE/2018/05/ /Volumes/DM/data/WERA/radial/FRE/2018/05/

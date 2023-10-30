@@ -3,6 +3,7 @@
 # updated 20190313 to use aws instead of s3cmd to download from aodn s3 
 # 20190501  modified to download entire years from AODN thredds
 # SYSTEM=  WERA or CODAR
+# yh@uwa 20231030 - updated paths for geko server 
 
 SYSTEM=$1
 SITE=$2
@@ -28,10 +29,10 @@ echo $YEAR
 #echo $command
 echo downloading s3://imos-data/IMOS/ACORN/gridded_1h-avg-current-map_QC/$SITE/$YEAR/
 echo to
-echo /home2/yasha/radar/data/$SYSTEM/RTdata_FV01/$SITE/$YEAR/
-mkdir -p /home2/yasha/radar/data/$SYSTEM/RTdata_FV01/$SITE/$YEAR/
+echo /Volumes/DM/data/$SYSTEM/RTdata_FV01/$SITE/$YEAR/
+mkdir -p /Volumes/DM/data/$SYSTEM/RTdata_FV01/$SITE/$YEAR/
 
-aws s3 sync --no-sign s3://imos-data/IMOS/ACORN/gridded_1h-avg-current-map_QC/$SITE/$YEAR/  /home2/yasha/radar/data/$SYSTEM/RTdata_FV01/$SITE/$YEAR/ 
+aws s3 sync --no-sign s3://imos-data/IMOS/ACORN/gridded_1h-avg-current-map_QC/$SITE/$YEAR/  /Volumes/DM/data/$SYSTEM/RTdata_FV01/$SITE/$YEAR/ 
 
 
 done
@@ -43,4 +44,4 @@ done
 
 
 
-#s3cmd sync s3://imos-data/IMOS/ACORN/radial/FRE/2018/05/ /home2/yasha/radar/data/WERA/radial/FRE/2018/05/
+#s3cmd sync s3://imos-data/IMOS/ACORN/radial/FRE/2018/05/ /Volumes/DM/data/WERA/radial/FRE/2018/05/

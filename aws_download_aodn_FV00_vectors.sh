@@ -4,6 +4,7 @@
 # 20190501  modified to download entire years from AODN thredds
 # 20210407 adapted FV01 yearly scipot to download FV00 monthly
 # SYSTEM=  WERA or CODAR
+# yh@uwa 20231030 - updated paths for geko server 
 
 SYSTEM=$1
 SITE=$2
@@ -33,17 +34,17 @@ echo $mo
 #echo $command
 echo downloading s3://imos-data/IMOS/ACORN/gridded_1h-avg-current-map_non-QC/$SITE/$YEAR/$mo
 echo to
-echo /home2/yasha/radar/data/$SYSTEM/RTdata_FV00/$SITE/$YEAR/$mo
-mkdir -p /home2/yasha/radar/data/$SYSTEM/RTdata_FV00/$SITE/$YEAR/$mo
+echo /Volumes/DM/data/$SYSTEM/RTdata_FV00/$SITE/$YEAR/$mo
+mkdir -p /Volumes/DM/data/$SYSTEM/RTdata_FV00/$SITE/$YEAR/$mo
 
-aws s3 sync --no-sign s3://imos-data/IMOS/ACORN/gridded_1h-avg-current-map_non-QC/$SITE/$YEAR/$mo  /home2/yasha/radar/data/$SYSTEM/RTdata_FV00/$SITE/$YEAR/$mo/ 
+aws s3 sync --no-sign s3://imos-data/IMOS/ACORN/gridded_1h-avg-current-map_non-QC/$SITE/$YEAR/$mo  /Volumes/DM/data/$SYSTEM/RTdata_FV00/$SITE/$YEAR/$mo/ 
 
 for day  in $(seq -w 1 31)
     do
 	fprintf -v day "%02d" $dd
 	echo $day
-	mv /home2/yasha/radar/data/$SYSTEM/RTdata_FV00/$SITE/$YEAR/$mo/$day/*.nc /home2/yasha/radar/data/$SYSTEM/RTdata_FV00/$SITE/$YEAR/$mo/
-	rmdir /home2/yasha/radar/data/$SYSTEM/RTdata_FV00/$SITE/$YEAR/$mo/$day/
+	mv /Volumes/DM/data/$SYSTEM/RTdata_FV00/$SITE/$YEAR/$mo/$day/*.nc /Volumes/DM/data/$SYSTEM/RTdata_FV00/$SITE/$YEAR/$mo/
+	rmdir /Volumes/DM/data/$SYSTEM/RTdata_FV00/$SITE/$YEAR/$mo/$day/
 done
 
 done
@@ -54,4 +55,4 @@ done
 
 
 
-#s3cmd sync s3://imos-data/IMOS/ACORN/radial/FRE/2018/05/ /home2/yasha/radar/data/WERA/radial/FRE/2018/05/
+#s3cmd sync s3://imos-data/IMOS/ACORN/radial/FRE/2018/05/ /Volumes/DM/data/WERA/radial/FRE/2018/05/

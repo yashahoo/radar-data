@@ -1,7 +1,7 @@
 
 # call as ./aws_download_aodn_FV00_radials.sh  SITE YEAR STARTMONTH ENDMONTH 
 # updated 20190313 to use aws instead of s3cmd to download from aodn s3 
-
+# yh@uwa 20231030 - updated paths for geko server 
 SITE=$1
 YEAR=$2
 
@@ -24,10 +24,10 @@ echo $mo
 #echo $command
 echo downloading s3://imos-data/IMOS/ACORN/radial/$SITE/$YEAR/$mo/
 echo to
-echo /home2/yasha/radar/data/WERA/radial/$SITE/$YEAR/$mo/
-mkdir -p /home2/yasha/radar/data/WERA/radial/$SITE/$YEAR/$mo/
+echo /Volumes/DM/data/WERA/radial/$SITE/$YEAR/$mo/
+mkdir -p /Volumes/DM/data/WERA/radial/$SITE/$YEAR/$mo/
 
-aws s3 sync --no-sign s3://imos-data/IMOS/ACORN/radial/$SITE/$YEAR/$mo/  /home2/yasha/radar/data/WERA/radial/$SITE/$YEAR/$mo/ 
+aws s3 sync --no-sign s3://imos-data/IMOS/ACORN/radial/$SITE/$YEAR/$mo/  /Volumes/DM/data/WERA/radial/$SITE/$YEAR/$mo/ 
 
 
 done
@@ -39,4 +39,4 @@ done
 
 
 
-#s3cmd sync s3://imos-data/IMOS/ACORN/radial/FRE/2018/05/ /home2/yasha/radar/data/WERA/radial/FRE/2018/05/
+#s3cmd sync s3://imos-data/IMOS/ACORN/radial/FRE/2018/05/ /Volumes/DM/data/WERA/radial/FRE/2018/05/
