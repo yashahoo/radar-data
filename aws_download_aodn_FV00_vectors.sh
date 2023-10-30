@@ -4,7 +4,9 @@
 # 20190501  modified to download entire years from AODN thredds
 # 20210407 adapted FV01 yearly scipot to download FV00 monthly
 # SYSTEM=  WERA or CODAR
-# yh@uwa 20231030 - updated paths for geko server 
+# yh@uwa 20231030 
+# - updated paths for geko server 
+# -fixed incorrect seq usage
 
 SYSTEM=$1
 SITE=$2
